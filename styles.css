@@ -1,15 +1,17 @@
-/* =================================Variables y Reseteo Base================================= */
+/* =================================Variables y Reseteo Base (Modo Oscuro) ================================= */
 :root {
-  --primary-color: #c34a0d;
-  --primary-hover: #4e2394;
-  --secondary-color: #491c7c;
-  --bg-color: #edf2f7;
-  --card-bg: #ffffff;
-  --text-main: #0a58d7;
-  --text-muted: #799ac4;
-  --border-color: #cad4e3;
+  --primary-color: #38bdf8;        /* Azul claro brillante / acento */
+  --primary-hover: #0ea5e9;        /* Tono más intenso para hover */
+  --secondary-color: #a78bfa;      /* Morado suave secundario */
+  --bg-color: #0f172a;           /* Fondo general muy oscuro (Slate 900) */
+  --card-bg: #1e293b;            /* Fondo de tarjetas / contenedores (Slate 800) */
+  --text-main: #f8fafc;          /* Texto principal casi blanco */
+  --text-muted: #94a3b8;         /* Texto secundario gris claro */
+  --border-color: #334155;       /* Bordes sutiles oscuros */
   --max-width: 1100px;
-  --transition: all 0.3s ease;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -41,9 +43,10 @@ ul {
   list-style: none;
 }
 
-/* =================================Header & Navegación================================= */
+/* =================================Header & Navegación (Flexbox Avanzado) ================================= */
 .header {
-  background-color: var(--card-bg);
+  background-color: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   position: sticky;
   top: 0;
@@ -76,6 +79,7 @@ ul {
   display: flex;
   gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav__link {
@@ -83,25 +87,27 @@ ul {
   font-weight: 500;
   color: var(--text-muted);
   transition: var(--transition);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
 }
 
 .nav__link:hover,
 .nav__link--active {
   color: var(--primary-color);
-  background-color: rgba(37, 99, 235, 0.05);
+  background-color: rgba(56, 189, 248, 0.1);
 }
 
-/* =================================Main & Hero Section================================= */
+/* =================================Main & Hero Section (Degradados & Grid) ================================= */
 .main {
   flex: 1;
 }
 
 .hero {
-  padding: 5rem 2rem;
-  background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 100%);
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero__container {
@@ -110,7 +116,7 @@ ul {
 }
 
 .hero__title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
   margin-bottom: 0.5rem;
   color: var(--text-main);
@@ -137,25 +143,26 @@ ul {
   flex-wrap: wrap;
 }
 
-/* Botones Reutilizables */
+/* Botones Reutilizables con Sombras y Transiciones */
 .button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: var(--transition);
   cursor: pointer;
   font-size: 0.95rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .button--primary {
-  background-color: var(--primary-color);
-  color: white;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: #0f172a;
 }
 
 .button--primary:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
 }
 
 .button--secondary {
@@ -165,19 +172,19 @@ ul {
 }
 
 .button--secondary:hover {
-  background-color: rgba(37, 99, 235, 0.05);
-  transform: translateY(-2px);
+  background-color: rgba(56, 189, 248, 0.1);
+  transform: translateY(-3px);
 }
 
-/* Estadísticas del Hero */
+/* Estadísticas del Hero (Grid Moderno) */
 .hero__stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.5rem;
   background: var(--card-bg);
   padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
   border: 1px solid var(--border-color);
 }
 
@@ -196,7 +203,7 @@ ul {
 /* =================================Sobre Mí================================= */
 .about {
   padding: 5rem 2rem;
-  background-color: var(--card-bg);
+  background-color: var(--bg-color);
 }
 
 .about__container {
@@ -212,6 +219,7 @@ ul {
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: var(--text-main);
 }
 
 .about__intro {
@@ -230,12 +238,13 @@ ul {
 
 /* Bloque de Cita */
 .quote {
-  background-color: var(--bg-color);
+  background: linear-gradient(145deg, var(--card-bg), #111827);
   border-left: 4px solid var(--primary-color);
-  padding: 1.5rem;
-  border-radius: 0 8px 8px 0;
+  padding: 1.75rem;
+  border-radius: 0 12px 12px 0;
   max-width: 750px;
   margin: 0 auto 3rem auto;
+  box-shadow: var(--shadow-sm);
 }
 
 .quote__text {
@@ -251,11 +260,12 @@ ul {
   text-align: right;
 }
 
-/* Valores */
+/* Valores (Grid Avanzado) */
 .values__title {
   font-size: 1.25rem;
   margin-bottom: 1.5rem;
   text-align: center;
+  color: var(--text-main);
 }
 
 .values__list {
@@ -265,23 +275,30 @@ ul {
 }
 
 .values__item {
-  background: var(--bg-color);
+  background: var(--card-bg);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.values__item:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
 }
 
 .values__icon {
   font-size: 1.5rem;
 }
 
-/* =================================Proyectos================================= */
+/* =================================Proyectos (Flexbox & Grid Avanzado) ================================= */
 .projects {
   padding: 5rem 2rem;
-  background-color: var(--bg-color);
+  background: linear-gradient(180deg, var(--bg-color) 0%, #111827 100%);
 }
 
 .projects__container {
@@ -304,9 +321,9 @@ ul {
 .project {
   background: var(--card-bg);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -314,29 +331,33 @@ ul {
 }
 
 .project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
 .project--featured {
-  border-color: var(--primary-color);
+  border-color: var(--secondary-color);
+  background: linear-gradient(145deg, var(--card-bg), #1a2333);
 }
 
 .project__badge {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background-color: rgba(37, 99, 235, 0.1);
-  color: var(--primary-color);
+  background-color: rgba(167, 139, 250, 0.15);
+  color: var(--secondary-color);
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.25rem 0.75rem;
   border-radius: 20px;
+  border: 1px solid rgba(167, 139, 250, 0.3);
 }
 
 .project__title {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
+  color: var(--text-main);
 }
 
 .project__description {
@@ -350,6 +371,7 @@ ul {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
 .project__learnings {
@@ -368,19 +390,19 @@ ul {
 }
 
 .tag {
-  background-color: var(--bg-color);
-  color: var(--secondary-color);
+  background-color: #0f172a;
+  color: var(--primary-color);
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
   border: 1px solid var(--border-color);
 }
 
 .project__links {
   margin-top: auto;
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .project__link {
@@ -391,13 +413,14 @@ ul {
 }
 
 .project__link:hover {
+  color: var(--text-main);
   text-decoration: underline;
 }
 
 /* =================================Habilidades================================= */
 .skills {
   padding: 5rem 2rem;
-  background-color: var(--card-bg);
+  background-color: var(--bg-color);
 }
 
 .skills__container {
@@ -423,23 +446,23 @@ ul {
 .skill__name {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
 .skill__bar {
   background-color: var(--border-color);
-  height: 10px;
-  border-radius: 5px;
+  height: 12px;
+  border-radius: 6px;
   overflow: hidden;
   position: relative;
 }
 
 .skill__progress {
   height: 100%;
-  background-color: var(--primary-color);
-  border-radius: 5px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 6px;
 }
 
-/* Porcentajes simulados según las clases correspondientes */
 .skill__progress--html { width: 75%; }
 .skill__progress--css { width: 60%; }
 .skill__progress--js { width: 20%; }
@@ -453,15 +476,17 @@ ul {
 }
 
 .learning {
-  background-color: var(--bg-color);
+  background: var(--card-bg);
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
 }
 
 .learning__title {
   font-size: 1.1rem;
   margin-bottom: 1rem;
+  color: var(--text-main);
 }
 
 .learning__list {
@@ -476,7 +501,7 @@ ul {
 /* =================================Contacto================================= */
 .contact {
   padding: 5rem 2rem;
-  background-color: var(--bg-color);
+  background: linear-gradient(180deg, #111827 0%, var(--bg-color) 100%);
   text-align: center;
 }
 
@@ -500,13 +525,21 @@ ul {
 .contact__method {
   background: var(--card-bg);
   padding: 1.5rem;
-  border-radius: 8px;
+  border-radius: 12px;
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.contact__method:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
 }
 
 .contact__method-title {
   font-size: 1rem;
   margin-bottom: 0.5rem;
+  color: var(--text-main);
 }
 
 .contact__link {
@@ -519,12 +552,13 @@ ul {
   text-decoration: underline;
 }
 
-/* =================================Footer================================= */
+/* =================================Footer (Flexbox Avanzado) ================================= */
 .footer {
-  background-color: #0f172a;
-  color: #94a3b8;
+  background-color: #090d16;
+  color: var(--text-muted);
   padding: 3rem 2rem;
   text-align: center;
+  border-top: 1px solid var(--border-color);
 }
 
 .footer__container {
@@ -544,15 +578,14 @@ ul {
   margin-bottom: 0.5rem;
 }
 
-/* Corrigiendo los saltos de línea (<br>) del footer original mediante CSS si se desea */
 .footer__link {
   font-size: 0.9rem;
-  color: #cbd5e1;
+  color: var(--text-muted);
   transition: var(--transition);
 }
 
 .footer__link:hover {
-  color: white;
+  color: var(--primary-color);
 }
 
 .footer__copyright {
@@ -562,4 +595,26 @@ ul {
 .footer__credits {
   font-size: 0.8rem;
   color: #64748b;
+}
+
+/* =================================Media Queries (Diseño Fluido & Responsivo) ================================= */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .nav__list {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
 }
