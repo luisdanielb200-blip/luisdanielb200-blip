@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Luis Daniel Beltran - Portfolio Personal</title>
+  <title>Luis Daniel Beltrán - Portfolio Personal</title>
   <meta name="description"
-    content="Portfolio personal de Luis Daniel Beltran. Desarrollador Web en formación aprendiendo HTML y CSS.">
+    content="Portfolio personal de Luis Daniel Beltrán. Desarrollador Web en formación aprendiendo HTML y CSS.">
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -15,27 +15,17 @@
   <header class="header">
     <div class="header__container">
       <div class="header__brand">
-        <h1 class="header__name"> Luis Daniel Beltran</h1>
+        <h1 class="header__name">Luis Daniel Beltrán</h1>
         <p class="header__tagline">Desarrollador Web en Formación</p>
       </div>
 
       <nav class="nav">
         <ul class="nav__list">
-          <li class="nav__item">
-            <a href="#inicio" class="nav__link nav__link--active">Inicio</a>
-          </li>
-          <li class="nav__item">
-            <a href="#sobre-mi" class="nav__link">Sobre mí</a>
-          </li>
-          <li class="nav__item">
-            <a href="#proyectos" class="nav__link">Proyectos</a>
-          </li>
-          <li class="nav__item">
-            <a href="#habilidades" class="nav__link">Habilidades</a>
-          </li>
-          <li class="nav__item">
-            <a href="#contacto" class="nav__link">Contacto</a>
-          </li>
+          <li><a href="#inicio" class="nav__link nav__link--active">Inicio</a></li>
+          <li><a href="#sobre-mi" class="nav__link">Sobre mí</a></li>
+          <li><a href="#proyectos" class="nav__link">Proyectos</a></li>
+          <li><a href="#habilidades" class="nav__link">Habilidades</a></li>
+          <li><a href="#contacto" class="nav__link">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -43,22 +33,34 @@
 
   <!-- Contenido principal -->
   <main class="main">
+    
     <!-- Hero Section -->
     <section class="hero" id="inicio">
       <div class="hero__container">
-        <h2 class="hero__title">¡Hola! Soy Luis Daniel Beltran</h2>
-        <p class="hero__subtitle">Desarrollador Web en Formación</p>
-        <p class="hero__description">
-          Estoy aprendiendo HTML y CSS para crear sitios web hermosos
-          y funcionales. Mi pasión: transformar ideas en experiencias
-          web increíbles.
-        </p>
+        <!-- Texto del Hero -->
+        <div class="hero__content">
+          <h2 class="hero__title">¡Hola! Soy Luis Daniel Beltrán</h2>
+          <p class="hero__subtitle">Desarrollador Web en Formación</p>
+          <p class="hero__description">
+            Estoy aprendiendo HTML y CSS para crear sitios web hermosos
+            y funcionales. Mi pasión: transformar ideas en experiencias
+            web increíbles.
+          </p>
 
-        <div class="hero__actions">
-          <a href="#proyectos" class="button button--primary">Ver Mis Proyectos</a>
-          <a href="#contacto" class="button button--secondary">Contáctame</a>
+          <div class="hero__actions">
+            <a href="#proyectos" class="button button--primary">Ver Mis Proyectos</a>
+            <a href="#contacto" class="button button--secondary">Contáctame</a>
+          </div>
         </div>
 
+        <!-- Imagen del Hero (Tu Fotografía) -->
+        <div class="hero__image-container">
+          <img src="WhatsApp Image 2026-10-19 at 8.13.54 PM.jpeg" alt="Foto de Luis Daniel Beltrán" class="hero__image">
+        </div>
+      </div>
+
+      <!-- Estadísticas en el Hero -->
+      <div class="hero__stats-wrapper">
         <div class="hero__stats">
           <div class="stat">
             <span class="stat__number">6+</span>
@@ -81,27 +83,40 @@
       <div class="about__container">
         <h2 class="about__title">Mi Viaje en el Desarrollo Web</h2>
 
-        <p class="about__intro">
-          Soy <strong>desarrollador web en formación</strong>,
-          actualmente aprendiendo HTML y CSS para crear sitios
-          web hermosos y funcionales.
-        </p>
+        <div class="about__content-layout">
+          <!-- Texto informativo -->
+          <div class="about__text-side">
+            <p class="about__intro">
+              Soy <strong>desarrollador web en formación</strong>,
+              actualmente aprendiendo HTML y CSS para crear sitios
+              web hermosos y funcionales.
+            </p>
 
-        <p class="about__text">
-          Me apasiona la tecnología y el diseño. Cada día descubro
-          nuevas formas de mejorar mis habilidades y crear
-          mejores experiencias web.
-        </p>
+            <p class="about__text">
+              Me apasiona la tecnología y el diseño. Cada día descubro
+              nuevas formas de mejorar mis habilidades y crear
+              mejores experiencias web.
+            </p>
 
-        <blockquote class="quote">
-          <p class="quote__text">
-            "El buen diseño es obvio. El gran diseño es transparente.
-            Mi objetivo es crear sitios web que sean ambos: bellos
-            y funcionales."
-          </p>
-          <cite class="quote__author">— Mi filosofía de aprendizaje</cite>
-        </blockquote>
+            <blockquote class="quote">
+              <p class="quote__text">
+                "El buen diseño es obvio. El gran diseño es transparente.
+                Mi objetivo es crear sitios web que sean ambos: bellos
+                y funcionales."
+              </p>
+              <cite class="quote__author">— Mi filosofía de aprendizaje</cite>
+            </blockquote>
+          </div>
 
+          <!-- Imagen en Sobre Mí -->
+          <div class="about__image-side">
+            <div class="about__image-wrapper">
+              <img src="WhatsApp Image 2026-10-19 at 8.13.54 PM.jpeg" alt="Luis Daniel trabajando" class="about__image">
+            </div>
+          </div>
+        </div>
+
+        <!-- Valores -->
         <div class="values">
           <h3 class="values__title">Mis Valores</h3>
           <ul class="values__list">
